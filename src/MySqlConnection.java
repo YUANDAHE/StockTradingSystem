@@ -11,14 +11,18 @@ import java.util.Properties;
 
 public class MySqlConnection {
 	public static void main(String[] args) {
+		String dbname = "stock_trading_system";
+		String user = "root";
+		String password = "password";
+
 		try {
 			java.sql.Driver driver = new com.mysql.jdbc.Driver();
 			
 			/** jdbc:mysql://<machine_name><:port>/dbname */
-			String url = "jdbc:mysql://127.0.0.1:3306/stock_trading_system";
+			String url = "jdbc:mysql://127.0.0.1:3306/"+dbname;
 			Properties info = new Properties();
-			info.put("user", "root");
-			info.put("password", "password");
+			info.put("user", user);
+			info.put("password", password);
 			Connection con = driver.connect(url, info);
 			System.out.println("JDBC connection successfully. con="+con);
 		} catch (Exception e) {
